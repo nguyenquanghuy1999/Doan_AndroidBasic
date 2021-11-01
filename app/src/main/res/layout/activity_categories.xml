@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@drawable/category_bg"
+    android:orientation="vertical"
+    tools:context=".CategoriesActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_apple"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="40dp"
+            android:text="Categories"
+            android:textColor="#171616"
+            android:textSize="38dp"
+            android:textStyle="bold"></TextView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnMB"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#0978D1"
+        android:drawableLeft="@drawable/icon_mb"
+        android:gravity="center"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="Macbook"
+        android:drawableTint="@color/white"
+        android:textSize="25dp"></Button>
+
+    <Button
+        android:id="@+id/btnIP"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#0978D1"
+        android:drawableLeft="@drawable/icon_ip"
+        android:text="Iphone"
+        android:drawableTint="@color/white"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:gravity="center"
+        android:textSize="25dp"></Button>
+
+    <Button
+        android:id="@+id/btnIPad"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#0978D1"
+        android:drawableLeft="@drawable/icon_ipad"
+        android:text="Ipad"
+        android:paddingLeft="30dp"
+        android:paddingRight="40dp"
+        android:drawableTint="@color/white"
+        android:gravity="center"
+        android:textSize="25dp"></Button>
+
+    <Button
+        android:id="@+id/btnWatch"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#0978D1"
+        android:drawableLeft="@drawable/icon_iw"
+        android:text="IWatch"
+        android:paddingLeft="30dp"
+        android:drawableTint="@color/white"
+        android:paddingRight="30dp"
+        android:gravity="center"
+        android:textSize="25dp"></Button>
+
+
+</LinearLayout>
