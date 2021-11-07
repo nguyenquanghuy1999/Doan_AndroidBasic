@@ -36,7 +36,7 @@ public class ProductsIPhone extends AppCompatActivity implements View.OnClickLis
 
         lvDS = (ListView) findViewById(R.id.lvDS);
         arrProduct = new ArrayList<>();
-        adapter = new AdapterProductApple(this, R.layout.activity_product_apple, arrProduct);
+        adapter = new AdapterProductApple(this, R.layout.activity_row_product, arrProduct);
         lvDS.setAdapter(adapter);
 
         database = Database.initDatabase(this, DATABASE_NAME);

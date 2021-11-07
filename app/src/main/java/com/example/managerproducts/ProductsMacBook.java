@@ -7,10 +7,13 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
+
 
 import java.util.ArrayList;
 
@@ -37,7 +40,7 @@ public class ProductsMacBook extends AppCompatActivity implements View.OnClickLi
 
         lvDS = (ListView) findViewById(R.id.lvDS);
         arrProduct = new ArrayList<>();
-        adapter = new AdapterProductApple(this, R.layout.activity_product_apple, arrProduct);
+        adapter = new AdapterProductApple(this, R.layout.activity_row_product, arrProduct);
         lvDS.setAdapter(adapter);
 
         database = Database.initDatabase(this, DATABASE_NAME);
@@ -65,6 +68,33 @@ public class ProductsMacBook extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        MenuItem itemSearch = menu.findItem(R.id.action_search);
+
+        if (itemSearch != null) {
+            SearchView searchView = (SearchView) itemSearch.getActionView();
+            searchView.setQueryHint("Search...");
+            searchView.setMaxWidth(Integer.MAX_VALUE);
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    adapter.getFilter().filter(query);
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    adapter.getFilter().filter(newText);
+
+                    return false;
+                }
+            });
+        }
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -76,5 +106,6 @@ public class ProductsMacBook extends AppCompatActivity implements View.OnClickLi
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 }

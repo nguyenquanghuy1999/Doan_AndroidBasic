@@ -13,18 +13,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.appcompat.app.AlertDialog;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class AdapterProductApple extends BaseAdapter {
+public class AdapterProductApple extends BaseAdapter implements Filterable {
     private Context context;
     private int layout;
     private List<ProductApple> listProduct;
+    List<ProductApple> arrayList;
     String DATABASE_NAME = "QLSP.db";
     SQLiteDatabase database;
 
@@ -33,6 +39,8 @@ public class AdapterProductApple extends BaseAdapter {
         this.context = context;
         this.layout = layout;
         this.listProduct = listProduct;
+        this.arrayList = listProduct;
+
     }
 
 
@@ -43,12 +51,12 @@ public class AdapterProductApple extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return listProduct.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -120,7 +128,7 @@ public class AdapterProductApple extends BaseAdapter {
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Confirm");
-                builder.setMessage("Are you sure you want to delete this product ?");
+                builder.setMessage("Are you sure you want to delete " + productApple.TenSP + "?");
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -196,5 +204,36 @@ public class AdapterProductApple extends BaseAdapter {
         }
         notifyDataSetChanged();
 
+    }
+
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String strSearch = constraint.toString();
+                if (strSearch.isEmpty()) {
+                    listProduct = arrayList;
+                } else {
+                    List<ProductApple> list = new ArrayList<>();
+                    for (ProductApple productApple : arrayList) {
+                        if (productApple.TenSP.toLowerCase().contains(strSearch.toLowerCase())) {
+                            list.add(productApple);
+                        }
+                    }
+                    listProduct = list;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = listProduct;
+                return filterResults ;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                listProduct = (List<ProductApple>) results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }
