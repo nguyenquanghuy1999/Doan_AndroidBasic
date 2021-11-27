@@ -10,7 +10,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp">
 
         <ImageView
@@ -30,14 +30,14 @@
             android:textSize="25dp" />
 
         <TextView
-            android:id="@+id/txtMaSP"
+            android:id="@+id/txtDungLuongSP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtTenSP"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/imgAnh"
-            android:text="Mã sản phẩm"
+            android:text="Dung lượng"
             android:textColor="#6C6767"
             android:textSize="19dp" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/txtGiaSP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtMaSP"
+            android:layout_below="@id/txtDungLuongSP"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/imgAnh"
@@ -62,7 +62,7 @@
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/imgAnh"
             android:backgroundTint="#F8980B"
-            android:text="Update"></Button>
+            android:text="Sửa"></Button>
 
         <Button
             android:id="@+id/btnXoa"
@@ -73,7 +73,7 @@
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/btnSua"
             android:backgroundTint="#F45246"
-            android:text="Delete"></Button>
+            android:text="Xóa"></Button>
 
     </RelativeLayout>
 </LinearLayout>

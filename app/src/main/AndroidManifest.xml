@@ -5,40 +5,49 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="DoAn"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ManagerProducts">
         <activity
             android:name=".InsertActivity"
-            android:label="Add New Product"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Thêm Sản phẩm" />
         <activity
             android:name=".UpdateActivity"
-            android:label="Update Product"
-            android:exported="true" />
-        <activity
-            android:name=".ProductsIWatch"
             android:exported="true"
-            android:icon="@drawable/icon_mb"
-            android:label="Products IWatch" />
+            android:label="Cập nhật" />
         <activity
-            android:name=".ProductsIPad"
+            android:name=".Products_AirPods"
             android:exported="true"
-            android:label="Products IPad" />
+            android:label="AirPods" />
         <activity
-            android:name=".ProductsIPhone"
+            android:name=".Products_IMac"
             android:exported="true"
-            android:label="Products IPhone" />
+            android:label="IMac" />
         <activity
-            android:name=".ProductsMacBook"
+            android:name=".Products_IWatch"
             android:exported="true"
-            android:label="Products MacBook" />
+            android:label="IWatch" />
         <activity
-            android:name=".CategoriesActivity"
-            android:exported="true" />
+            android:name=".Products_IPad"
+            android:exported="true"
+            android:label="IPad" />
+        <activity
+            android:name=".Products_IPhone"
+            android:exported="true"
+            android:label="IPhone" />
+        <activity
+            android:name=".Products_MacBook"
+            android:exported="true"
+            android:label="MacBook" />
+        <activity
+            android:name=".ControlActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".MainActivity"
+            android:theme="@style/AppTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,140 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UpdateActivity">
+    android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imgAnhThem"
-        android:layout_width="180dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/select_image"></ImageView>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            tools:context=".UpdateActivity">
 
-    <Button
-        android:id="@+id/btnChupHinhThem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_toRightOf="@id/imgAnhThem"
-        android:backgroundTint="#ABB2B5"
-        android:text="Take Image"
-        android:textSize="17dp"></Button>
+            <ImageView
+                android:id="@+id/imgAnhThem"
+                android:layout_width="180dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/select_image"></ImageView>
 
-    <Button
-        android:id="@+id/btnChonHinhThem"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnChupHinhThem"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/imgAnhThem"
-        android:backgroundTint="#ABB2B5"
-        android:text="Choose Image"
-        android:textSize="17dp"></Button>
+            <Button
+                android:id="@+id/btnChupHinhThem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@id/imgAnhThem"
+                android:backgroundTint="#ABB2B5"
+                android:text="Chụp hình"
+                android:textSize="17dp"></Button>
 
-    <TextView
-        android:id="@+id/tvMaSPThem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imgAnhThem"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:paddingLeft="40dp"
-        android:text="Code Product"
-        android:textColor="#5C5A5A"
-        android:textSize="21dp"
-        android:textStyle="bold"></TextView>
+            <Button
+                android:id="@+id/btnChonHinhThem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnChupHinhThem"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/imgAnhThem"
+                android:backgroundTint="#ABB2B5"
+                android:text="Chọn hình"
+                android:textSize="17dp"></Button>
 
-    <EditText
-        android:id="@+id/txtMaSPThem"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/tvMaSPThem"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/border_update"
-        android:drawablePadding="10dp"
-        android:hint="Enter code product"
-        android:paddingLeft="20dp"
-        android:textSize="22dp"></EditText>
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tvTenSPThem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtMaSPThem"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="5dp"
-        android:paddingLeft="40dp"
-        android:text="Name Product"
-        android:textColor="#5C5A5A"
-        android:textSize="21dp"
-        android:textStyle="bold"></TextView>
+        <TextView
+            android:id="@+id/tvMaSPThem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="Mã sản phẩm"
+            android:layout_marginRight="109dp"
+            android:textColor="#5C5A5A"
+            android:textSize="21dp"
+            android:textStyle="bold"></TextView>
 
-    <EditText
-        android:id="@+id/txtTenThem"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/tvTenSPThem"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/border_update"
-        android:drawablePadding="10dp"
-        android:hint="Enter name product"
-        android:paddingLeft="20dp"
-        android:textSize="22dp"></EditText>
+        <EditText
+            android:id="@+id/txtMaSPThem"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/tvMaSPThem"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_update"
+            android:drawablePadding="10dp"
+            android:hint="Nhập mã sản phẩm"
+            android:paddingLeft="20dp"
+            android:textSize="22dp"></EditText>
 
-    <TextView
-        android:id="@+id/tvGiaSPThem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtTenThem"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="5dp"
-        android:paddingLeft="40dp"
-        android:text="Price Product"
-        android:textColor="#5C5A5A"
-        android:textSize="21dp"
-        android:textStyle="bold"></TextView>
+        <TextView
+            android:id="@+id/tvTenSPThem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="109dp"
+            android:text="Tên sản phẩm"
+            android:textColor="#5C5A5A"
+            android:textSize="21dp"
+            android:textStyle="bold"></TextView>
 
-    <EditText
-        android:id="@+id/txtGiaThem"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/tvGiaSPThem"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/border_update"
-        android:drawablePadding="10dp"
-        android:hint="Enter price product"
-        android:paddingLeft="20dp"
-        android:textSize="22dp"></EditText>
+        <EditText
+            android:id="@+id/txtTenThem"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/tvTenSPThem"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_update"
+            android:drawablePadding="10dp"
+            android:hint="Nhập tên sản phẩm"
+            android:paddingLeft="20dp"
+            android:textSize="22dp"></EditText>
 
+        <TextView
+            android:id="@+id/tvDLSPThem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="119dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:text="Dung lượng"
+            android:textColor="#5C5A5A"
+            android:textSize="21dp"
+            android:textStyle="bold"></TextView>
 
-    <Button
-        android:id="@+id/btnLuuThem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtGiaThem"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Add"
-        android:textSize="17dp"></Button>
+        <EditText
+            android:id="@+id/txtDLThem"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/tvDLSPThem"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_update"
+            android:drawablePadding="10dp"
+            android:hint="Nhập dung lượng sản phẩm"
+            android:paddingLeft="20dp"
+            android:textSize="22dp"></EditText>
 
-    <Button
-        android:id="@+id/btnHuyThem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtGiaThem"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_toRightOf="@id/btnLuuThem"
-        android:backgroundTint="#F44336"
-        android:text="Cancel"
-        android:textSize="17dp"></Button>
+        <TextView
+            android:id="@+id/tvGiaSPThem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="109dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:text="Giá sản phẩm"
+            android:textColor="#5C5A5A"
+            android:textSize="21dp"
+            android:textStyle="bold"></TextView>
 
-</RelativeLayout>
+        <EditText
+            android:id="@+id/txtGiaThem"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/tvGiaSPThem"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_update"
+            android:drawablePadding="10dp"
+            android:hint="Nhập giá sản phẩm"
+            android:paddingLeft="20dp"
+            android:textSize="22dp"></EditText>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnLuuThem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#4CAF50"
+                android:text="Thêm"
+                android:textSize="17dp"></Button>
+
+            <Button
+                android:id="@+id/btnHuyThem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#F44336"
+                android:text="Hủy"
+                android:textSize="17dp"></Button>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

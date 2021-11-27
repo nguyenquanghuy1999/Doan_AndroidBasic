@@ -1,117 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UpdateActivity">
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            tools:context=".UpdateActivity">
+
+            <ImageView
+                android:id="@+id/imgAnhSua"
+                android:layout_width="180dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/ic_launcher_background"></ImageView>
+
+            <Button
+                android:id="@+id/btnChupHinh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@id/imgAnhSua"
+                android:backgroundTint="#ABB2B5"
+                android:text="Chụp hình"
+                android:textSize="17dp"></Button>
+
+            <Button
+                android:id="@+id/btnChonHinh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnChupHinh"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/imgAnhSua"
+                android:backgroundTint="#ABB2B5"
+                android:text="Chọn hình"
+                android:textSize="17dp"></Button>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvTenSP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="109dp"
+            android:layout_marginBottom="5dp"
+            android:text="Tên sản phẩm"
+            android:textColor="#5C5A5A"
+            android:textSize="21dp"
+            android:textStyle="bold"></TextView>
+
+        <EditText
+            android:id="@+id/txtTenSua"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_update"
+            android:drawablePadding="10dp"
+            android:hint="Nhập tên sản phẩm"
+            android:paddingLeft="20dp"
+            android:textSize="22dp"></EditText>
+
+        <TextView
+            android:id="@+id/tvDungLuong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="119dp"
+            android:layout_marginBottom="5dp"
+            android:text="Dung lượng"
+            android:textColor="#5C5A5A"
+            android:textSize="21dp"
+            android:textStyle="bold"></TextView>
+
+        <EditText
+            android:id="@+id/txtDungLuongSua"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_update"
+            android:drawablePadding="10dp"
+            android:hint="Nhập dung lượng sản phẩm"
+            android:paddingLeft="20dp"
+            android:textSize="22dp"></EditText>
+
+        <TextView
+            android:id="@+id/tvGiaSP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="109dp"
+            android:layout_marginBottom="5dp"
+            android:text="Giá sản phẩm"
+            android:textColor="#5C5A5A"
+            android:textSize="21dp"
+            android:textStyle="bold"></TextView>
+
+        <EditText
+            android:id="@+id/txtGiaSua"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:background="@drawable/border_update"
+            android:drawablePadding="10dp"
+            android:hint="Nhập giá sản phẩm"
+            android:paddingLeft="20dp"
+            android:textSize="22dp"></EditText>
 
 
-    <ImageView
-        android:id="@+id/imgAnhSua"
-        android:layout_width="180dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="25dp"
-        android:src="@drawable/ic_launcher_background">
-    </ImageView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnChupHinh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_toRightOf="@id/imgAnhSua"
-        android:backgroundTint="#ABB2B5"
-        android:text="Take Image"
-        android:textSize="17dp"></Button>
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#4CAF50"
+                android:text="Lưu"
+                android:textSize="17dp"></Button>
 
-    <Button
-        android:id="@+id/btnChonHinh"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnChupHinh"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/imgAnhSua"
-        android:backgroundTint="#ABB2B5"
-        android:text="Choose Image"
-        android:textSize="17dp"></Button>
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#F44336"
+                android:text="Hủy"
+                android:textSize="17dp"></Button>
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvTenSP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imgAnhSua"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="5dp"
-        android:paddingLeft="40dp"
-        android:text="Name Product"
-        android:textColor="#5C5A5A"
-        android:textSize="21dp"
-        android:textStyle="bold"></TextView>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/txtTenSua"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/tvTenSP"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/border_update"
-        android:drawablePadding="10dp"
-        android:hint="Enter name product"
-        android:paddingLeft="20dp"
-        android:textSize="22dp"></EditText>
-
-    <TextView
-        android:id="@+id/tvGiaSP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtTenSua"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:paddingLeft="40dp"
-        android:text="Price Product"
-        android:textColor="#5C5A5A"
-        android:textSize="21dp"
-        android:textStyle="bold"></TextView>
-
-    <EditText
-        android:id="@+id/txtGiaSua"
-        android:layout_width="330dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/tvGiaSP"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/border_update"
-        android:drawablePadding="10dp"
-        android:hint="Enter price product"
-        android:paddingLeft="20dp"
-        android:textSize="22dp"></EditText>
-
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txtGiaSua"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Save"
-        android:textSize="17dp"></Button>
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:textSize="17dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="#F44336"
-        android:layout_toRightOf="@id/btnSave"
-        android:layout_below="@id/txtGiaSua">
-    </Button>
-
-</RelativeLayout>
+</ScrollView>

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_settings"
-        android:title="Settings" />
 
     <item
-        android:id="@+id/action_search"
-        android:title="Search"
-        app:actionViewClass="android.widget.SearchView"
+        android:id="@+id/add"
+        android:icon="@drawable/icon_add"
+        android:title="add"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/option"
+        android:title="Xóa toàn bộ sản phẩm" />
 
 </menu>

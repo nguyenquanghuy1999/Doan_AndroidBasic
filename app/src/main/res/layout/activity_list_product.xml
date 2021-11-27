@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnThem"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/teal_200"
-        android:drawableLeft="@drawable/icon_add"
-        android:paddingLeft="110dp"
-        android:paddingRight="100dp"
-        android:text="Add Product"
-        android:textSize="18dp">
-    </Button>
+    <EditText
+        android:id="@+id/txtTimKiem"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:hint="Tìm kiếm sản phẩm..."
+        android:layout_gravity="center"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border_search"
+        android:paddingLeft="15dp"
+        android:drawableLeft="@drawable/icon_search">
+    </EditText>
 
     <ListView
         android:id="@+id/lvDS"

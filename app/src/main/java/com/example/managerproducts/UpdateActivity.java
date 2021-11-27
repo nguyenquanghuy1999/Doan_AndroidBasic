@@ -1,6 +1,7 @@
 package com.example.managerproducts;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -16,10 +17,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -33,9 +36,8 @@ public class UpdateActivity extends AppCompatActivity {
     String DATABASE_NAME = "QLSP.db";
     SQLiteDatabase database;
     ImageView imgAnhSua;
-    EditText txtTenSua, txtGiaSua;
+    EditText txtTenSua, txtGiaSua, txtDungLuongSua;
     Button btnChupHinh, btnChonHinh, btnSave, btnCancel;
-
     final int REQUEST_TAKE_PHOTO = 123;
     final int REQUEST_CHOOSE_PHOTO = 321;
     int maSP;
@@ -46,11 +48,23 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         addControl();
 
         loadData();
 
         addEvent();
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -58,6 +72,7 @@ public class UpdateActivity extends AppCompatActivity {
         imgAnhSua = (ImageView) findViewById(R.id.imgAnhSua);
         txtTenSua = (EditText) findViewById(R.id.txtTenSua);
         txtGiaSua = (EditText) findViewById(R.id.txtGiaSua);
+        txtDungLuongSua = (EditText) findViewById(R.id.txtDungLuongSua);
         btnChupHinh = (Button) findViewById(R.id.btnChupHinh);
         btnChonHinh = (Button) findViewById(R.id.btnChonHinh);
         btnSave = (Button) findViewById(R.id.btnSave);
@@ -75,14 +90,16 @@ public class UpdateActivity extends AppCompatActivity {
 
         cursor.moveToFirst();
         String tenSp = cursor.getString(1);
-        String giaSp = cursor.getString(2);
-        byte[] anh = cursor.getBlob(3);
+        String dungLuongSP = cursor.getString(2);
+        String giaSp = cursor.getString(3);
+        byte[] anh = cursor.getBlob(4);
 
         if (anh != null) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(anh, 0, anh.length);
             imgAnhSua.setImageBitmap(bitmap);
         }
         txtTenSua.setText(tenSp);
+        txtDungLuongSua.setText(dungLuongSP);
         txtGiaSua.setText(giaSp);
     }
 
@@ -117,25 +134,29 @@ public class UpdateActivity extends AppCompatActivity {
         });
     }
 
+
     private void update() {
         String tenSP = txtTenSua.getText().toString();
+        String dungLuongSP = txtDungLuongSua.getText().toString();
         String giaSP = txtGiaSua.getText().toString();
         byte[] anh = getByteArrayFromImageView(imgAnhSua);
 
-        Bundle bundle = getIntent().getExtras();
-        String tableName = bundle.getString("tableName");
-        Serializable className = getIntent().getSerializableExtra("className");
+        Intent intent = getIntent();
+        String tableName = intent.getStringExtra("tableName");
+        Serializable className = intent.getSerializableExtra("className");
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("TenSP", tenSP);
+        contentValues.put("DungLuongSP", dungLuongSP);
         contentValues.put("GiaSP", giaSP);
         contentValues.put("ImageSP", anh);
 
         database = Database.initDatabase(this, DATABASE_NAME);
         database.update(tableName, contentValues, "masp = ?", new String[]{maSP + ""});
 
-        Intent intent = new Intent(this, (Class<?>) className);
-        startActivity(intent);
+        Intent back = new Intent(this, (Class<?>) className);
+        startActivity(back);
+
 
     }
 

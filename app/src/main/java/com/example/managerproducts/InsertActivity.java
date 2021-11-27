@@ -32,7 +32,7 @@ public class InsertActivity extends AppCompatActivity {
     String DATABASE_NAME = "QLSP.db";
     SQLiteDatabase database;
     ImageView imgAnhThem;
-    EditText txtMaSP, txtTenThem, txtGiaThem;
+    EditText txtMaSP, txtTenThem, txtGiaThem, txtDungLuongThem;
     Button btnChupHinh, btnChonHinh, btnLuu, btnHuy;
 
     final int REQUEST_TAKE_PHOTO = 123;
@@ -58,6 +58,7 @@ public class InsertActivity extends AppCompatActivity {
         imgAnhThem = (ImageView) findViewById(R.id.imgAnhThem);
         txtTenThem = (EditText) findViewById(R.id.txtTenThem);
         txtGiaThem = (EditText) findViewById(R.id.txtGiaThem);
+        txtDungLuongThem = (EditText) findViewById(R.id.txtDLThem);
         btnChupHinh = (Button) findViewById(R.id.btnChupHinhThem);
         btnChonHinh = (Button) findViewById(R.id.btnChonHinhThem);
         btnLuu = (Button) findViewById(R.id.btnLuuThem);
@@ -98,30 +99,32 @@ public class InsertActivity extends AppCompatActivity {
     private void insert() {
         String maSP = txtMaSP.getText().toString();
         String tenSP = txtTenThem.getText().toString();
+        String dungLuongSP = txtDungLuongThem.getText().toString();
         String giaSP = txtGiaThem.getText().toString();
         byte[] anh = getByteArrayFromImageView(imgAnhThem);
 
-        Bundle bundle = getIntent().getExtras();
-        String tableName = bundle.getString("tableName");
-        Serializable className = getIntent().getSerializableExtra("className");
+        Intent intent = getIntent();
+        String tableName = intent.getStringExtra("tableName");
+        Serializable className = intent.getSerializableExtra("className");
 
-        if (!maSP.isEmpty() && !tenSP.isEmpty() && !giaSP.isEmpty()) {
+        if (!maSP.isEmpty() && !tenSP.isEmpty() && !dungLuongSP.isEmpty() && !giaSP.isEmpty()) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("MaSP", maSP);
             contentValues.put("TenSP", tenSP);
+            contentValues.put("DungLuongSP", dungLuongSP);
             contentValues.put("GiaSP", giaSP);
             contentValues.put("ImageSP", anh);
 
             database = Database.initDatabase(this, DATABASE_NAME);
             database.insert(tableName, null, contentValues);
 
-            Intent intent = new Intent(this, (Class<?>) className);
-            startActivity(intent);
+            Intent add = new Intent(this, (Class<?>) className);
+            startActivity(add);
+            Toast.makeText(getApplicationContext(), "Đã thêm một sản phẩm mới!", Toast.LENGTH_SHORT).show();
 
         } else {
-            Toast.makeText(this, "Please enter full information!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
         }
-
 
     }
 
@@ -170,12 +173,8 @@ public class InsertActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                break;
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
         }
         return super.onOptionsItemSelected(item);
     }
