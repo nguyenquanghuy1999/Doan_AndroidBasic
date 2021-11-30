@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         txtUser = (EditText) findViewById(R.id.txtUser);
         txtPassWord = (EditText) findViewById(R.id.txtPW);
         btnLogIn = (Button) findViewById(R.id.btnLogIn);
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập vào các trường phía trên!", Toast.LENGTH_SHORT).show();
                 }
             }
-
         });
     }
+
 }

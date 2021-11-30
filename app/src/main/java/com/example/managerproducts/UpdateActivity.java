@@ -156,8 +156,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         Intent back = new Intent(this, (Class<?>) className);
         startActivity(back);
-
-
+        Toast.makeText(getApplicationContext(), "Cập nhật sản phẩm thành công!", Toast.LENGTH_SHORT).show();
     }
 
 

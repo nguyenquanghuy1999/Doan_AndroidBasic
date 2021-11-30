@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
 import java.util.ArrayList;
 
 public class Products_MacBook extends AppCompatActivity implements TextWatcher {
@@ -36,10 +35,8 @@ public class Products_MacBook extends AppCompatActivity implements TextWatcher {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-
         txtSearch = (EditText) findViewById(R.id.txtTimKiem);
         txtSearch.addTextChangedListener(this);
-
 
         lvDS = (ListView) findViewById(R.id.lvDS);
         arrProduct = new ArrayList<>();

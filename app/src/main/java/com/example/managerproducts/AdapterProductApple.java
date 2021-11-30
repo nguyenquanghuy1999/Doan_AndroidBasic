@@ -151,12 +151,14 @@ public class AdapterProductApple extends BaseAdapter implements Filterable {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Xác nhận");
+                builder.setTitle("Xác nhận ?");
                 builder.setMessage("Bạn có chắc muốn xóa " + productApple.TenSP + " ?");
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         delete(productApple.MaSP);
+                        Toast.makeText(context.getApplicationContext(),
+                                "Đã xóa " + productApple.TenSP, Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
